@@ -5,15 +5,15 @@
 #include <stdlib.h>
 #include <time.h>
 #define SIZE 8
-#define DIGIT 3
+#define DIGIT 8
 #define SMALLEST 0
 #define LARGEST 9
 
-int* populate_aux(int *vector, int *vector_aux){
+int* populate_aux(int *vector, int *vector_aux, int divisor){
   int i;
   int index;
   for(i = 0; i < SIZE; i++){
-    index = vector[i] - SMALLEST;
+    index = ((vector[i] / divisor) % 10) - SMALLEST;
     vector_aux[index]++;
   }
   return vector_aux;
@@ -36,51 +36,59 @@ int* build_aux(int *vector, int aux_size){
   return aux_vector;
 }
 
-int* sorting(int *vector, int *vector_aux){
+int* sorting(int *vector, int *vector_aux, int divisor){
   int *sorted_vector;
   int i;
   int index;
   sorted_vector = calloc(SIZE,sizeof(int));
 
   for(i = SIZE-1; i >= 0; i--){
-    index = vector[i] - SMALLEST;
+    index = ((vector[i] / divisor) % 10) - SMALLEST;
     sorted_vector[vector_aux[index]-1] = vector[i];
     vector_aux[index]--;
   }
   return sorted_vector;
 }
 
-int* counting_sort(int *vector){
+int* counting_sort(int *vector, int divisor){
   int *vector_aux;
-  int largest = vector[0], SMALLEST = vector[0];
   int i;
-    for(i=1; i < SIZE; i++){
-      if(vector[i] < SMALLEST){
-        SMALLEST = vector[i];
-      }
-      if(vector[i] > largest){
-        largest = vector[i];
-      }
-    }
 
-    int aux_size = largest - SMALLEST + 1;
+    int aux_size = LARGEST - SMALLEST + 1;
     vector_aux = build_aux(vector, aux_size);
-    vector_aux = populate_aux(vector, vector_aux);
+    vector_aux = populate_aux(vector, vector_aux, divisor);
     vector_aux = restruct_aux(vector_aux, aux_size);
 
-    vector = sorting(vector, vector_aux);
+    vector = sorting(vector, vector_aux, divisor);
 
     return vector;
 }
 
 
 int main(int argc, char const *argv[]) {
-  int vector[] = {329, 457, 657, 839, 436, 720, 355};
+  int *vector;
   int i;
-  for(i = 0, i < DIGIT, i++){
-    vector = counting_sort(vector, i*10);
+
+  vector = malloc(sizeof(int)*SIZE);
+  srand(time(NULL));
+  printf("Vetor inicial: ");
+  for(i = 0; i < SIZE; i++){
+    vector[i] = rand() % 100000000;
+
+      printf("%d ",vector[i]) ;
+  }
+  int aux;
+  aux = 1;
+  for(i = 0; i < DIGIT; i++){
+    vector = counting_sort(vector, aux);
+    aux*=10;
   }
 
+  printf("\nVetor final: ");
+  for(i = 0; i < SIZE; i++){
+    printf("%d ",vector[i]) ;
+  }
+  printf("\n\n\n");
     //usar a lógica: num % 10, depois divide por 10 e loop disso
   return 0;
 }
