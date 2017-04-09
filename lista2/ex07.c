@@ -1,10 +1,11 @@
 /*  Fabiola Malta Fleury 15/0009275
-*   Lucas Oliveira
+*   Lucas Oliveira Silva 15/0016018
+*   Implementação do radix com counting sort
 */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define SIZE 8
+#define SIZE 1000000
 #define DIGIT 8
 #define SMALLEST 0
 #define LARGEST 9
@@ -89,6 +90,5 @@ int main(int argc, char const *argv[]) {
     printf("%d ",vector[i]) ;
   }
   printf("\n\n\n");
-    //usar a lógica: num % 10, depois divide por 10 e loop disso
   return 0;
 }

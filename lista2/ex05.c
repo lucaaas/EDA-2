@@ -1,3 +1,9 @@
+/*  Fabiola Malta Fleury 15/0009275
+*   Lucas Oliveira Silva 15/0016018
+*   Implementação do quick sort
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

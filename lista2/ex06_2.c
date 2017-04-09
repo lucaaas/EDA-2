@@ -1,6 +1,6 @@
 /*  Fabiola Malta Fleury 15/0009275
 *   Lucas Oliveira Silva 15/0016018
-*   Implementação do heap sort normal
+*   Implementação do heap sort com 2 vetores
 */
 #include <stdio.h>
 #include <time.h>
@@ -14,10 +14,6 @@ int left_index(int index){
 
 int rigth_index(int index){
   return (2 * index) + 1;
-}
-
-int parent_index(int index){
-  return (index/2);
 }
 
 
@@ -57,17 +53,16 @@ int* build_heap(int *vector, int size){
 
 int* heap_sort(int *vector, int size){
   int i;
+  int *sorted_vector;
+  sorted_vector = malloc(sizeof(int)*size);
 
-  vector = build_heap(vector, size);
-
-  for(i = size; i > 1; i--){
-    int swap = vector[1];
-    vector[1] = vector [i];
-    vector[i] = swap;
+  for(i = size; i > 0; i--){
+    vector = build_heap(vector, vector[0]);
+    sorted_vector[i] = vector[1];
     vector[0]--;
-    heapify(vector, 1);
+    vector[1] = vector[i];
   }
-  return vector;
+  return sorted_vector;
 }
 
 int main(int argc, char const *argv[]) {
