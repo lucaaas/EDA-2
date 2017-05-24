@@ -1,5 +1,8 @@
-/*This program reads sequence s and then s', returning if s' is a
-*  subsequence of s or not.*/
+/* Fabiola Malta Fleury 15/0009275
+*  Lucas Oliveira Silva 15/0016018
+*  This program reads sequence s and then s', returning if s' is a
+*  subsequence of s or not.
+*/
 
 #include <stdlib.h>
 #include <stdio.h>
