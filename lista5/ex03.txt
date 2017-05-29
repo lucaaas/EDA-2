@@ -1,0 +1,29 @@
+Divide-se n em dois lados iguais. Se existirem mais do que n/2 cartões equivalentes no total, então um dos dois 
+lados terá mais do que a metade destes cartões, logo o algoritmo fornecido pelo banco deverá ser rodado de forma
+recursiva dos dois lados. Caso o programa encontre uma equivalência em mais da metade do pedaço, ela retornará 
+um cartão amostra dessa equivalência.Exemplo:
+
+
+1 2 2 3 4 5 3 1 1 1 1 4  n=12
+
+1 2 2 3 4 5        1 1 3 4 1 1 
+
+
+1 2  2 3  4 5
+
+12   23   45  Comparando os três sets, nenhum é igual, não retorna nada. 
+
+
+
+Na outra metade:
+
+ 1 1 3 4 1 1
+
+11  34  11   Retorna o 1, pois ele foi em dois sets encontrado.
+
+1        1
+
+     1 
+
+
+Agora com o retorno do 1, ele é testado com todos os outros elementos, e é confirmado que há a equivalência de mais de n/2 (com valor = 1).
