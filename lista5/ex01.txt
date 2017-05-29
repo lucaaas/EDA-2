@@ -1,0 +1,10 @@
+  Para achar a mediana usando O(log n) consultas de um dado conjunto S
+usa-se o algoritmo para encontrar a mediana das medianas. Que consistem em:
+    1. Agrupar os dados em grupos de 5
+    2. Ordenar cada grupo e encontrar a mediana de cada um
+    3. Sendo M o conjunto de medianas, encontrar a mediana das medianas(MOM)
+    4. Dividir o conjunto original em torno da MOM, colocando os valores menores
+que ela no conjunto L e os maiores no conjunto R
+    5. Se |L| = k - 1, então retorna MOM
+        se |L| > k - 1, então repete-se todo o processo com o subconjunto L
+        senão repete-se com o subconjunto R e com k igual a k-|L|-1.
