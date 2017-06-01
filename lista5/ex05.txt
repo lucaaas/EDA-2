@@ -1,0 +1,21 @@
+ Fabiola Malta Fleury 15/0009275
+ 
+ Lucas Oliveira Silva 15/0016018 
+
+Para analisar três linhas (L1,L2,L3), considere:
+y1 = a1 * x + b1
+y2 = a2 * x + b2
+y3 = a3 * x + b3
+
+A primeira e a terceira sempre estarão visíveis, porém a segunda só será visível se o x em que há encontro das linhas L1 e L2 for menor
+do que o x de encontro da L1 e L3:
+
+a1 * xq + b1 = a2 * xq + b2
+a1 * xz + b1 = a3 * xz + b3
+
+xq < xz
+
+Para analisar n linhas,  é necessário ordenar todas as n linhas para que estes estejam em ordem de aumento inclinação da reta (ai).
+Divide-se n pela metade e chama-se recursivamente a análise de linhas três por três, em cada uma das metades, guardando os pontos de 
+interseção das linhas visíveis para que se consiga analisar o problema como um todo. Basta fazer um merge ordenando os resultados das 
+metades que serão obtidas as linhas visíveis.
