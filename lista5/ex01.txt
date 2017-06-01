@@ -1,4 +1,7 @@
-  Para achar a mediana usando O(log n) consultas de um dado conjunto S
+ Fabiola Malta Fleury 15/0009275
+ Lucas Oliveira Silva 15/0016018 
+ 
+ Para achar a mediana usando O(log n) consultas de um dado conjunto S
 usa-se o algoritmo para encontrar a mediana das medianas. Que consistem em:
     1. Agrupar os dados em grupos de 5
     2. Ordenar cada grupo e encontrar a mediana de cada um
